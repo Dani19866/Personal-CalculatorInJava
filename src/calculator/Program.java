@@ -15,8 +15,8 @@ public class Program {
         calculator.setLocationRelativeTo(null);
         
         // Set minimum and maximum size
-        calculator.setMinimumSize(new Dimension(363, 334));
-        calculator.setMaximumSize(new Dimension(363, 334));
+        calculator.setMinimumSize(new Dimension(353, 334));
+        calculator.setMaximumSize(new Dimension(353, 334));
         calculator.setResizable(false);
         
         // Show GUI
