@@ -44,6 +44,7 @@ public class Calculator extends javax.swing.JFrame {
 
         layoutPanel.setBackground(new java.awt.Color(204, 204, 204));
         layoutPanel.setPreferredSize(new java.awt.Dimension(300, 400));
+        layoutPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titlePanel.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -55,14 +56,17 @@ public class Calculator extends javax.swing.JFrame {
         titlePanel.setLayout(titlePanelLayout);
         titlePanelLayout.setHorizontalGroup(
             titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+            .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
         );
         titlePanelLayout.setVerticalGroup(
             titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        layoutPanel.add(titlePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 276, -1));
+
         displayPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        displayPanel.setMaximumSize(new java.awt.Dimension(15, 30));
 
         displayLabel.setBackground(new java.awt.Color(255, 255, 255));
         displayLabel.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
@@ -73,12 +77,14 @@ public class Calculator extends javax.swing.JFrame {
         displayPanel.setLayout(displayPanelLayout);
         displayPanelLayout.setHorizontalGroup(
             displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(displayLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(displayLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
         );
         displayPanelLayout.setVerticalGroup(
             displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(displayLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        layoutPanel.add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 39, 333, -1));
 
         buttonsPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         buttonsPanel.setMaximumSize(new java.awt.Dimension(73, 23));
@@ -102,6 +108,11 @@ public class Calculator extends javax.swing.JFrame {
         delButton.setBackground(new java.awt.Color(153, 255, 255));
         delButton.setText("DEL");
         delButton.setFocusPainted(false);
+        delButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                delButtonMouseClicked(evt);
+            }
+        });
 
         divideButton.setBackground(new java.awt.Color(255, 153, 255));
         divideButton.setText("÷");
@@ -174,11 +185,6 @@ public class Calculator extends javax.swing.JFrame {
                 fiveButtonMouseClicked(evt);
             }
         });
-        fiveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fiveButtonActionPerformed(evt);
-            }
-        });
 
         forButton.setBackground(new java.awt.Color(255, 255, 255));
         forButton.setText("4");
@@ -209,11 +215,6 @@ public class Calculator extends javax.swing.JFrame {
                 plusButtonMouseClicked(evt);
             }
         });
-        plusButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plusButtonActionPerformed(evt);
-            }
-        });
 
         twoButton.setBackground(new java.awt.Color(255, 255, 255));
         twoButton.setText("2");
@@ -242,8 +243,13 @@ public class Calculator extends javax.swing.JFrame {
         resultButton.setBackground(new java.awt.Color(204, 255, 204));
         resultButton.setText("=");
         resultButton.setFocusPainted(false);
+        resultButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resultButtonMouseClicked(evt);
+            }
+        });
 
-        pointButton.setBackground(new java.awt.Color(255, 255, 255));
+        pointButton.setBackground(new java.awt.Color(153, 204, 255));
         pointButton.setText(".");
         pointButton.setFocusPainted(false);
 
@@ -253,8 +259,13 @@ public class Calculator extends javax.swing.JFrame {
         zeroButton.setMaximumSize(new java.awt.Dimension(73, 23));
         zeroButton.setMinimumSize(new java.awt.Dimension(73, 23));
         zeroButton.setPreferredSize(new java.awt.Dimension(73, 23));
+        zeroButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                zeroButtonMouseClicked(evt);
+            }
+        });
 
-        changeSignButton.setBackground(new java.awt.Color(255, 255, 255));
+        changeSignButton.setBackground(new java.awt.Color(153, 204, 255));
         changeSignButton.setText("+/-");
         changeSignButton.setFocusPainted(false);
         changeSignButton.setMaximumSize(new java.awt.Dimension(73, 23));
@@ -356,29 +367,7 @@ public class Calculator extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layoutPanelLayout = new javax.swing.GroupLayout(layoutPanel);
-        layoutPanel.setLayout(layoutPanelLayout);
-        layoutPanelLayout.setHorizontalGroup(
-            layoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layoutPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layoutPanelLayout.setVerticalGroup(
-            layoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layoutPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        layoutPanel.add(buttonsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 75, 333, 248));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -396,19 +385,19 @@ public class Calculator extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="Events: Addition | Subtraction | Multiplication | Division">      
     private void plusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusButtonMouseClicked
-        // TODO add your handling code here:
+        this.updateOperation(1);
     }//GEN-LAST:event_plusButtonMouseClicked
 
     private void restButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restButtonMouseClicked
-        // TODO add your handling code here:
+        this.updateOperation(2);
     }//GEN-LAST:event_restButtonMouseClicked
 
     private void multiplyButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multiplyButtonMouseClicked
-        // TODO add your handling code here:
+        this.updateOperation(3);
     }//GEN-LAST:event_multiplyButtonMouseClicked
 
     private void divideButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_divideButtonMouseClicked
-        // TODO add your handling code here:
+        this.updateOperation(4);
     }//GEN-LAST:event_divideButtonMouseClicked
     //</editor-fold>
     
@@ -448,25 +437,41 @@ public class Calculator extends javax.swing.JFrame {
     private void nineButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nineButtonMouseClicked
         this.updateDisplay("9");
     }//GEN-LAST:event_nineButtonMouseClicked
-    //</editor-fold>
-    
-    // <editor-fold defaultstate="collapsed" desc="IGNORE">
-    private void fiveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fiveButtonActionPerformed
+        
+    private void zeroButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zeroButtonMouseClicked
+        this.updateDisplay("0");
+    }//GEN-LAST:event_zeroButtonMouseClicked
 
-    private void plusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_plusButtonActionPerformed
+    private void delButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_delButtonMouseClicked
+        this.deleteDisplay();
+    }//GEN-LAST:event_delButtonMouseClicked
+
+    private void resultButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultButtonMouseClicked
+        this.showResult();
+    }//GEN-LAST:event_resultButtonMouseClicked
     //</editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="Functions"> 
     private void updateDisplay(String x){
-        // Set values
         logic.setNumber(x);
-        
-        // Update changes
         displayLabel.setText(logic.display);
+    }
+    
+    private void updateOperation(int x){
+        if (x == 1) logic.worker(1);
+        if (x == 2) logic.worker(2);
+        if (x == 3) logic.worker(3);
+        if (x == 4) logic.worker(4);
+    }
+    
+    private void deleteDisplay(){
+        logic.delNumber();
+        displayLabel.setText(logic.display);
+    }
+    
+    private void showResult(){
+        logic.result();
+        displayLabel.setText(logic.resultDisplay);
     }
     //</editor-fold>
     

@@ -46,33 +46,8 @@
         </Property>
       </Properties>
 
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="displayPanel" max="32767" attributes="0"/>
-                      <Component id="titlePanel" min="-2" max="-2" attributes="0"/>
-                      <Component id="buttonsPanel" alignment="0" pref="333" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="titlePanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="displayPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="buttonsPanel" min="-2" pref="248" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="titlePanel">
@@ -81,11 +56,16 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
           </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="11" width="276" height="-1"/>
+            </Constraint>
+          </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="titleLabel" alignment="0" pref="330" max="32767" attributes="0"/>
+                  <Component id="titleLabel" alignment="0" pref="276" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -115,12 +95,20 @@
                 <LineBorder/>
               </Border>
             </Property>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[15, 30]"/>
+            </Property>
           </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="39" width="333" height="-1"/>
+            </Constraint>
+          </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="displayLabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="displayLabel" alignment="0" pref="331" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -161,6 +149,11 @@
               <Dimension value="[73, 23]"/>
             </Property>
           </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="75" width="333" height="248"/>
+            </Constraint>
+          </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -313,6 +306,9 @@
                 <Property name="text" type="java.lang.String" value="DEL"/>
                 <Property name="focusPainted" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="delButtonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="divideButton">
               <Properties>
@@ -423,7 +419,6 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fiveButtonMouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fiveButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="forButton">
@@ -469,7 +464,6 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="plusButtonMouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="plusButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="twoButton">
@@ -522,11 +516,14 @@
                 <Property name="text" type="java.lang.String" value="="/>
                 <Property name="focusPainted" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="resultButtonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="pointButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="ff" green="cc" red="99" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="."/>
                 <Property name="focusPainted" type="boolean" value="false"/>
@@ -549,11 +546,14 @@
                   <Dimension value="[73, 23]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="zeroButtonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="changeSignButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="ff" green="cc" red="99" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="+/-"/>
                 <Property name="focusPainted" type="boolean" value="false"/>
